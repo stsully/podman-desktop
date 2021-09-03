@@ -36,6 +36,6 @@ CONTAINER_HOST=ssh://root@127.0.0.1:2222/run/podman/podman.sock
 podman images
 podman pull alpine
 podman images
-podman run -it alpine bash
+podman run -it alpine sh
 ```
 @TODO: test building with Dockerfile
