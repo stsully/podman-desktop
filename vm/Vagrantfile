@@ -1,0 +1,25 @@
+$script = <<-SCRIPT
+	#!/bin/bash
+	set -ex
+	yum -y install podman
+	echo "adding ssh pub key..."
+	cat /vagrant/ssh_key.pub > /root/.ssh/authorized_keys  && chmod 600 /root/.ssh/authorized_keys
+	echo "starting podman service..."
+	systemctl enable podman
+	systemctl start podman
+	systemctl status podman
+SCRIPT
+
+Vagrant.configure("2") do |config|
+	config.vm.hostname = "podman"
+  config.vm.box = "fedora/33-cloud-base"
+	config.vm.provider "virtualbox" do |v|
+		v.memory = 2048
+		v.cpus = 2
+	end
+	config.vm.provision "shell", inline: $script
+end
+
+#Don't forget to export these:
+#CONTAINER_SSHKEY=$HOME/.ssh/id_rsa
+#CONTAINER_HOST=ssh://root@127.0.0.1:2222/run/podman/podman.sock
