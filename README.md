@@ -21,6 +21,10 @@ cp ~/.ssh/id_rsa.pub ./vm/ssh_key.pub
 cd vm
 vagrant up
 ```
+You should see that the VM started and kicked off the `podman` service. Confirm with:
+```
+vagrant status
+```
 4. Vagrant will start the machine, and put your ssh key (if you followed step 2. above) into root's .ssh/authorized_keys file. The VM will start the podman REST API, which you can connect over ssh. To set the local MacOS podman client to use this, export the following ENV Variables:
 ```
 CONTAINER_SSHKEY=$HOME/.ssh/id_rsa
