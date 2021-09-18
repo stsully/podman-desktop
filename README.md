@@ -4,10 +4,11 @@ This project attempts to replace docker-desktop with a working, open-source solu
 ### Pre-requisites
  * Oracle Virtualbox >= 6.1
    * [download here](https://download.virtualbox.org/virtualbox/6.1.26/VirtualBox-6.1.26-145957-OSX.dmg)
- * Hashicorp Vagrant >= 2.2.18
+ * Hashicorp Vagrant for mac >= 2.2.18
    * `brew install vagrant`
- * podman >= 3.3
+ * podman mac client >= 3.3
    * `brew install podman`
+   * _this is the podman version of the docker cli; does not include the "engine"_
 
 ### Installation
 1. install pre-reqisite software above.
